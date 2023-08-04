@@ -73,3 +73,5 @@ export function Login() {
     </AccessContainer>
   );
 }
+
+export default Login;
