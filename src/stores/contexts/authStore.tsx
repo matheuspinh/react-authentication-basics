@@ -1,9 +1,9 @@
-import { useCallback, useState, ReactNode } from 'react';
+import { useCallback, useState, ReactNode } from "react";
 // import { api } from '../../lib/axios'
-import { createContext } from 'use-context-selector'
+import { createContext } from "use-context-selector";
 
 interface SignInCredencials {
-  email: string;
+  user: string;
   password: string;
 }
 
@@ -18,17 +18,18 @@ interface AuthState {
   user: object;
 }
 
-
-export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+export const AuthContext = createContext<AuthContextData>(
+  {} as AuthContextData
+);
 
 interface CounterStoreProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export function AuthProvider({ children }: CounterStoreProviderProps) {
   const [data, setData] = useState<AuthState>(() => {
-    const token = localStorage.getItem('@residencia:token');
-    const user = localStorage.getItem('@residencia:user');
+    const token = localStorage.getItem("@residencia:token");
+    const user = localStorage.getItem("@residencia:user");
 
     if (token && user) {
       return { token, user: JSON.parse(user) };
@@ -37,18 +38,17 @@ export function AuthProvider({ children }: CounterStoreProviderProps) {
     return {} as AuthState;
   });
 
-  const signIn = useCallback(async ({ email, password }: SignInCredencials) => {
+  const signIn = useCallback(async ({ user, password }: SignInCredencials) => {
+    window.alert(`email: ${user} password: ${password}`);
 
-    window.alert(`email: ${email} password: ${password}`)
-
-    localStorage.setItem('@residencia:token', email);
-    localStorage.setItem('@residencia:user', JSON.stringify({ email }));
-    setData({ token: password, user: { email } });
+    localStorage.setItem("@residencia:token", user);
+    localStorage.setItem("@residencia:user", JSON.stringify({ user }));
+    setData({ token: password, user: { user } });
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem('@residencia:token');
-    localStorage.removeItem('@residencia:user');
+    localStorage.removeItem("@residencia:token");
+    localStorage.removeItem("@residencia:user");
 
     setData({} as AuthState);
   }, []);
@@ -58,4 +58,4 @@ export function AuthProvider({ children }: CounterStoreProviderProps) {
       {children}
     </AuthContext.Provider>
   );
-};
+}

@@ -16,12 +16,14 @@ const signInUserFormSchema = z.object({
     .min(6, "A senha deve conter ao menos 6 caracteres."),
 });
 
+type SignInFormData = z.infer<typeof signInUserFormSchema>;
+
 export function Login() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<SignInFormData>({
     resolver: zodResolver(signInUserFormSchema),
   });
 
@@ -29,8 +31,8 @@ export function Login() {
     return context.signIn;
   });
 
-  function handleLogin(data: signInUserFormSchema) {
-    await signIn({data.user, data.password});
+  async function handleLogin(data: SignInFormData) {
+    await signIn(data);
   }
 
   return (
