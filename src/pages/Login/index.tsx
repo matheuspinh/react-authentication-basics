@@ -5,6 +5,7 @@ import { Form } from "../../components/Form";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
 import LeftAccessBox from "../../components/LeftAccessBox";
 import CopyRight from "../../components/CopyRight";
 
@@ -19,6 +20,7 @@ const signInUserFormSchema = z.object({
 type SignInFormData = z.infer<typeof signInUserFormSchema>;
 
 export function Login() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -33,6 +35,8 @@ export function Login() {
 
   async function handleLogin(data: SignInFormData) {
     await signIn(data);
+    navigate("/");
+    return;
   }
 
   return (

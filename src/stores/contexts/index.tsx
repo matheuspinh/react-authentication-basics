@@ -1,16 +1,15 @@
-import { ReactNode } from 'react';
-import { AuthProvider } from './authStore';
-import { ExampleProvider } from './counterStore';
+import { ReactNode } from "react";
+import { AuthProvider } from "./authStore";
+import { DataProvider } from "./dataStore";
 
 interface AppProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export function AppProvider({ children }: AppProviderProps) {
   return (
     <AuthProvider>
-      <ExampleProvider>{children}</ExampleProvider>
+      <DataProvider>{children}</DataProvider>
     </AuthProvider>
   );
 }
-
