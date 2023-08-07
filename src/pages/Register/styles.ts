@@ -15,6 +15,7 @@ export const AccessContainer = styled.main`
 
   @media ${device.sm} {
     flex-direction: column;
+    overflow-x: hidden;
     gap: 2rem;
     margin-top: 2.375rem;
     padding: 1rem;

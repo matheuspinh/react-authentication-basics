@@ -1,22 +1,15 @@
-import { HeaderContainer, HeaderContent, NewExampleButton } from './styles'
-import logoImg from '../../assets/logo.svg'
-import * as Dialog from '@radix-ui/react-dialog'
-import { NewExampleModal } from '../Modal'
+import { HeaderContainer, LeftBox, Logo } from "./styles";
+import Menu from "./Menu";
+import SearchBox from "./SearchBox";
 
 export function Header() {
   return (
     <HeaderContainer>
-      <HeaderContent>
-        <img src={logoImg} alt="" />
-
-        <Dialog.Root>
-          <Dialog.Trigger asChild>
-            <NewExampleButton>Novo Calculo</NewExampleButton>
-          </Dialog.Trigger>
-
-          <NewExampleModal />
-        </Dialog.Root>
-      </HeaderContent>
+      <LeftBox>
+        <Logo />
+        <Menu />
+      </LeftBox>
+      <SearchBox />
     </HeaderContainer>
-  )
+  );
 }

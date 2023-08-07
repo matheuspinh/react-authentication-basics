@@ -7,6 +7,7 @@ export const AccessContainer = styled.main`
   align-items: center;
   justify-content: center;
   background-color: #d9e6f6;
+
   width: 100vw;
   min-height: 100vh;
   height: 100%;
@@ -15,6 +16,7 @@ export const AccessContainer = styled.main`
 
   @media ${device.sm} {
     flex-direction: column;
+    overflow-x: hidden;
     gap: 2rem;
     margin-top: 2.375rem;
     padding: 1rem;
