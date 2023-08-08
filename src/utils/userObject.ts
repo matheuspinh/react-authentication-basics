@@ -22,7 +22,7 @@ export const user = {
   site_admin: false,
   name: "Matheus Pinheiro",
   company: null,
-  blog: "",
+  blog: "https://matheuspinh.vercel.app/",
   location: "Rio de janeiro",
   email: null,
   hireable: null,
@@ -33,5 +33,5 @@ export const user = {
   followers: 14,
   following: 12,
   created_at: "2021-02-14T22:39:24Z",
-  updated_at: "2023-07-14T12:11:26Z",
+  updated_at: "2023-08-08T12:28:21Z",
 };
