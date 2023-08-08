@@ -10,12 +10,12 @@ import Profile from "./Profile";
 export function Home() {
   const navigate = useNavigate();
 
-  // const data = useContextSelector(DataContext, (context) => {
-  //   return context.data;
-  // });
+  const data = useContextSelector(DataContext, (context) => {
+    return context.data;
+  });
 
-  const data = userData;
-  console.log(data);
+  // const data = userData;
+  // console.log(data);
 
   const userString = localStorage.getItem("@residencia:user");
   let user: string;
