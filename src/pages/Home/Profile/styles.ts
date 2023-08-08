@@ -14,6 +14,6 @@ export const ProfileContainer = styled.div`
 export const ProfilePicture = styled.img`
   border-radius: 100%;
   width: 8.4375rem;
-  height: 100%;
+  object-fit: fill;
   padding-bottom: 1rem;
 `;
