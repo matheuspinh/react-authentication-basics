@@ -6,16 +6,18 @@ import { user as userData } from "../../utils/userObject";
 import { useEffect } from "react";
 import { Header } from "../../components/Header";
 import Profile from "./Profile";
+import TimeLine from "./Timeline";
+import Follows from "./Follows";
 
 export function Home() {
   const navigate = useNavigate();
 
-  const data = useContextSelector(DataContext, (context) => {
-    return context.data;
-  });
+  // const data = useContextSelector(DataContext, (context) => {
+  //   return context.data;
+  // });
 
-  // const data = userData;
-  // console.log(data);
+  const data = userData;
+  console.log(data);
 
   const userString = localStorage.getItem("@residencia:user");
   let user: string;
@@ -47,6 +49,8 @@ export function Home() {
       <Header />
       <HomeContainer>
         <Profile data={data} />
+        <TimeLine data={data} />
+        <Follows />
       </HomeContainer>
     </>
   );

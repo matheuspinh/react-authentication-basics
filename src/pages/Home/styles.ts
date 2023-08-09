@@ -7,4 +7,5 @@ export const HomeContainer = styled.main`
   max-width: 1120px;
   padding: 0 1.5rem;
   color: black;
+  gap: 0.625rem;
 `;
